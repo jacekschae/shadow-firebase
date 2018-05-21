@@ -19,11 +19,11 @@
   },
   "dependencies": {
     "create-react-class": "^15.6.3",
-    "firebase": "^4.13.1",
+    "firebase": "^5.0.3",
     "react": "^16.3.2",
     "react-dom": "^16.3.2"
   },
   "devDependencies": {
-    "shadow-cljs": "^2.3.19"
+    "shadow-cljs": "^2.3.23"
   }
 }
