@@ -1,7 +1,7 @@
 (ns app.views
   (:require [app.state :as state]
             [app.events :refer [increment decrement reset]]
-            [app.fb-auth :as fb-auth]))
+            [app.fb.auth :as fb-auth]))
 
 (defn header
   []

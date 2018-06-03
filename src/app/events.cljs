@@ -1,6 +1,6 @@
 (ns app.events
   (:require [app.state :as state]
-            [app.fb-db :as fb-db]))
+            [app.fb.db :as fb-db]))
 
 (defn increment
   []

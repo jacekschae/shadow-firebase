@@ -1,17 +1,18 @@
-(ns app.fb-db
-  (:require ["firebase" :as firebase :refer [database]]
-            [clojure.string :as string]
+(ns app.fb.db
+  (:require ["firebase/app" :refer [database]]
+            [clojure.string :as str]
             [app.state :as state]))
 
 ;; == db-ref ==================================================================
 ;; Represents a specific location in your Database and can be used for reading
-;; or writing data to the Database location, path is a vector of strings
+;; or writing data to the Database location, path is a vector of strings or 
+;; symbols.
 ;;
 ;; usage: (fb-db/db-ref ["counter"]))))
 ;;
 (defn db-ref
   [path]
-  (.ref (database) (string/join "/" path)))
+  (.ref (database) (str/join "/" path)))
 
 ;; == save! ===================================================================
 ;; Writes data to firebase path location. This will overwrite any data at this
@@ -27,11 +28,11 @@
 ;; == subscribe-to-counter ====================================================
 ;; Listens for data changes at the "counter" location.
 ;;
-;; usage: (subscribe-to-counter)
+;; usage: (db-subscribe ["counter"])
 ;;
-(defn subscribe-to-counter
-  []
-  (.on (db-ref ["counter"]) "value"
+(defn db-subscribe
+  [path]
+  (.on (db-ref path)
+       "value"
        (fn [snapshot]
-         (when-let [d (.val snapshot)]
-           (reset! state/counter d)))))
+         (reset! state/counter (js->clj (.val snapshot) :keywordize-keys true)))))
