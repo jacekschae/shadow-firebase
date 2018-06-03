@@ -5,38 +5,25 @@ Example showing authentication with Google Auth and persistence with realtime da
 ## Demo
 [Demo](https://shadow-firebase.firebaseapp.com)
 
-## How to use?
+## Setup And Run
 
-``` shell
-npm install -g shadow-cljs
-
-# or with yarn
-
-yarn global add shadow-cljs
+#### Copy repository
+```shell
+git clone git@github.com:jacekschae/shadow-firebase.git && cd shadow-firebase
 ```
 
-Set up firebase:
-
-- Create a project at the [Firebase console](https://console.firebase.google.com/).
-- Get your credentials from the Firebase console and replace `initializeApp #js` at app.core/firebase-init
-- Firebase console again, go to authentication>signup method and enable Google.
-
-`git clone` this repo and `cd` into the repo, then:
-
-``` shell
-yarn install
-
-yarn dev
+#### Install dependencies
+```shell
+yarn install || npm install
 ```
 
-## Clean
-
-``` shell
-yarn clean
+#### Run dev server
+```shell
+yarn dev || npm run dev
 ```
 
-## Release
+#### Compile an optimized version
 
-``` shell
-yarn release
+```shell
+yarn release || npm run release
 ```
